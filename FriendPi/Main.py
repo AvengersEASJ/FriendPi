@@ -3,9 +3,9 @@ from sense_hat import SenseHat
 
 tama = SenseHat()
 
-g = (0, 255, 0) #grøn
+g = (0, 255, 0) #green
 s = (0, 0, 0)  #sort
-b = (0, 0, 255) #blå
+b = (0, 0, 255) #blue
 y = (255, 255, 0) #yellow
 p = (87, 109, 88) #pigefarve
 d = (132, 210, 255) #drengfarve
