@@ -36,7 +36,8 @@ def getDataBroadcast ():
 
 def mainmenu ():
     sense = SenseHat()
-    sense.show_message("Hello world") 
+    getDataBroadcast()
+    sense.show_message(friendName) 
 
     g = (0, 255, 0) #green
     s = (0, 0, 0)  #sort
