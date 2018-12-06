@@ -1,4 +1,5 @@
 import socket
+import time
 from sense_hat import SenseHat
 
 friendsName = ""
@@ -14,10 +15,10 @@ def getDataBroadcast ():
       newFriendID = friendsID.replace("b'", "")
       newDress = dress.replace("\'", "")
       
-      friendName = friendsName
-
+      friendsName = friendName
 
 getDataBroadcast()
+time.sleep(10000)
 
 tama = SenseHat()
 tama.show_message(friendsName)
