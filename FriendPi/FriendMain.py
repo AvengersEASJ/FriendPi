@@ -11,31 +11,7 @@ task = ""
 fun = ""
 dress = ""
 
-def getDataBroadcast ():
-      client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-      client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-      client.bind(("", 4000))
-      while True:
-        data  = client.recvfrom(1024) 
-      
-      _friendsID, _friendName, _gender, _thirst, _hunger, _task, _fun, _dress = str(data).split()
-      newFriendID = _friendsID.replace("b'", "")
-      newDress = _dress.replace("\'", "")
-      
-      friendsID = _friendsID
-      friendName = _friendName
-      gender = _gender
-      thirst = _thirst
-      hunger = _hunger
-      task = _task
-      fun = _fun
-      dress = _dress
-
-getDataBroadcast()
-
-
 tama = SenseHat()
-tama.show_message(friendName)
 
 g = (0, 255, 0) #green
 s = (0, 0, 0)  #sort
@@ -118,5 +94,26 @@ else:
   tama.set_pixel(3, 2, green)
   tama.set_pixel(4, 2, green)
 
+def getDataBroadcast ():
+      client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+      client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+      client.bind(("", 4000))
+      while True:
+        data  = client.recvfrom(1024) 
+      
+      _friendsID, _friendName, _gender, _thirst, _hunger, _task, _fun, _dress = str(data).split()
+      newFriendID = _friendsID.replace("b'", "")
+      newDress = _dress.replace("\'", "")
+      
+      friendsID = _friendsID
+      friendName = _friendName
+      gender = _gender
+      thirst = _thirst
+      hunger = _hunger
+      task = _task
+      fun = _fun
+      dress = _dress
 
+getDataBroadcast()
+tama.show_message(friendName)
 
