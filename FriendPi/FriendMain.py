@@ -2,7 +2,14 @@ import socket
 import time
 from sense_hat import SenseHat
 
-friendsName = ""
+friendsID = ""
+friendName = ""
+gender = ""
+thirst = ""
+hunger =" "
+task = ""
+fun = ""
+dress = ""
 
 def getDataBroadcast ():
       client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -11,17 +18,24 @@ def getDataBroadcast ():
       while True:
         data  = client.recvfrom(1024) 
       
-      friendsID, friendName, gender, thirst, hunger, task, fun, dress = str(data).split()
-      newFriendID = friendsID.replace("b'", "")
-      newDress = dress.replace("\'", "")
+      _friendsID, _friendName, _gender, _thirst, _hunger, _task, _fun, _dress = str(data).split()
+      newFriendID = _friendsID.replace("b'", "")
+      newDress = _dress.replace("\'", "")
       
-      friendsName = friendName
+      friendsID = _friendsID
+      friendName = _friendName
+      gender = _gender
+      thirst = _thirst
+      hunger = _hunger
+      task = _task
+      fun = _fun
+      dress = _dress
 
 getDataBroadcast()
-time.sleep(10000)
+
 
 tama = SenseHat()
-tama.show_message(friendsName)
+tama.show_message(friendName)
 
 g = (0, 255, 0) #green
 s = (0, 0, 0)  #sort
@@ -52,8 +66,8 @@ f_tama = [
     g, g, g, g, g, g, g, g
 ]
 
-num = 1
-if num == 0:
+num = gender
+if num == False:
  tama.set_pixels(m_tama)
 else:
   tama.set_pixels(f_tama)
@@ -62,7 +76,7 @@ red = (255, 0, 0)
 yellow = (255, 255, 0)
 green = (0, 255, 0)
 #thirst
-num2 = 10
+num2 = thirst
 if num2 > 40 and num2 > 70:
    tama.set_pixel(0, 0, red)
 elif num2 > 40:   
@@ -75,7 +89,7 @@ red = (255, 0, 0)
 yellow = (255, 255, 0)
 green = (0, 255, 0)
 #hunger
-num3 = 45
+num3 = hunger
 if num3 > 40 and num3 > 70:
    tama.set_pixel(1, 0, red)
 elif num3 > 40:   
