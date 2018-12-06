@@ -1,10 +1,9 @@
 import socket
 from sense_hat import SenseHat
 
+friendsName = ""
 
-class Methods:
-
-  def getDataBroadcast (self):
+def getDataBroadcast ():
       client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
       client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
       client.bind(("", 4000))
@@ -14,13 +13,14 @@ class Methods:
       friendsID, friendName, gender, thirst, hunger, task, fun, dress = str(data).split()
       newFriendID = friendsID.replace("b'", "")
       newDress = dress.replace("\'", "")
+      
+      friendName = friendsName
 
-      sense = SenseHat()
 
-      sense.show_message(friendName)
-
+getDataBroadcast()
 
 tama = SenseHat()
+tama.show_message(friendsName)
 
 g = (0, 255, 0) #green
 s = (0, 0, 0)  #sort
@@ -103,8 +103,5 @@ else:
   tama.set_pixel(3, 2, green)
   tama.set_pixel(4, 2, green)
 
-class Main:
 
-  methods = Methods()
-  methods.getDataBroadcast()
 
