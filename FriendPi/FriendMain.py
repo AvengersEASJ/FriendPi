@@ -62,7 +62,7 @@ red = (255, 0, 0)
 yellow = (255, 255, 0)
 green = (0, 255, 0)
 #thirst
-num2 = 75
+num2 = 10
 if num2 > 40 and num2 > 70:
    tama.set_pixel(0, 0, red)
 elif num2 > 40:   
