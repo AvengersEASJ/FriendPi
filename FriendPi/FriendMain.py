@@ -2,24 +2,24 @@ import socket
 import time
 from sense_hat import SenseHat
 
-
+friendsID = ""
+friendName = ""
+gender = ""
+thirst = ""
+hunger =" "
+task = ""
+fun = ""
+dress = ""
 
 def getDataBroadcast ():
     client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     client.bind(("", 4000))
     data  = client.recvfrom(1024) 
-    
-    _friendsID, _friendName, _gender, _thirst, _hunger, _task, _fun, _dress = str(data).split()
-    newFriendID = _friendsID.replace("b'", "")
-    newDress = _dress.replace("\'", "")
       
     return str(data)
 
-
 def mainmenu ():
-    friendsID, friendName, gender, thirst, hunger, task, fun, dress = getDataBroadcast()
-
     sense = SenseHat()
     sense.show_message(getDataBroadcast()) 
 
