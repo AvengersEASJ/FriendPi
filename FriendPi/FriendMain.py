@@ -7,8 +7,8 @@ def getDataBroadcast ():
     client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     client.bind(("", 4000))
     while True:
-        data = client.recvfrom(1024)
-
+        data, addr = client.recvfrom(1024)
+    
     return data
 
 def mainmenu ():
