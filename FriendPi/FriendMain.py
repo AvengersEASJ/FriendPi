@@ -17,8 +17,7 @@ def getDataBroadcast ():
     client.bind(("", 4000))
     data  = client.recvfrom(1024) 
       
-        
-    return data
+    return str(data)
 
 def mainmenu ():
     sense = SenseHat()
