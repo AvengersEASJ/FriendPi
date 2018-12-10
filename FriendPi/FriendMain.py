@@ -68,11 +68,11 @@ def mainmenu ():
     #thirst
     num2 = int(thirst)
     if num2 > 40 and num2 > 70:
-        sense.set_pixel(0, 0, red)
+        sense.set_pixel(0, 0, green)
     elif num2 > 40:   
         sense.set_pixel(0, 0, yellow)
     else:
-        sense.set_pixel(0, 0, green)  
+        sense.set_pixel(0, 0, red)  
   
   
     red = (255, 0, 0)
@@ -81,11 +81,11 @@ def mainmenu ():
     #hunger
     num3 = int(hunger)
     if num3 > 40 and num3 > 70:
-        sense.set_pixel(1, 0, red)
+        sense.set_pixel(1, 0, green)
     elif num3 > 40:   
         sense.set_pixel(1, 0, yellow)
     else:
-        sense.set_pixel(1, 0, green)  
+        sense.set_pixel(1, 0, red)  
 
     red = (255, 0, 0)
     yellow = (255, 255, 0)
@@ -93,20 +93,20 @@ def mainmenu ():
     #mood
     num4 = int(hunger) + int(thirst) + int(fun)
     if num4 > 120 and num4 > 210:
-        sense.set_pixel(3, 1, red)
-        sense.set_pixel(4, 1, red)
-        sense.set_pixel(3, 2, red)
-        sense.set_pixel(4, 2, red)
+        sense.set_pixel(3, 1, green)
+        sense.set_pixel(4, 1, green)
+        sense.set_pixel(3, 2, green)
+        sense.set_pixel(4, 2, green)
     elif num4 > 120:   
         sense.set_pixel(3, 1, yellow)
         sense.set_pixel(4, 1, yellow)
         sense.set_pixel(3, 2, yellow)
         sense.set_pixel(4, 2, yellow)
     else:
-        sense.set_pixel(3, 1, green)
-        sense.set_pixel(4, 1, green)
-        sense.set_pixel(3, 2, green)
-        sense.set_pixel(4, 2, green)
+        sense.set_pixel(3, 1, red)
+        sense.set_pixel(4, 1, red)
+        sense.set_pixel(3, 2, red)
+        sense.set_pixel(4, 2, red)
 
 while True: 
     mainmenu()
