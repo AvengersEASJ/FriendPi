@@ -1,6 +1,7 @@
 import socket
 import time
 from sense_hat import SenseHat
+import re
 
 friendsID = ""
 friendName = ""
@@ -20,8 +21,9 @@ def getDataBroadcast ():
     return str(data)
 
 def mainmenu ():
-    friendsID, friendName, gender, thirst, hunger, task, fun, dress, what = getDataBroadcast().split()
-
+   
+    nydata = re.split('\s+', getDataBroadcast())
+    friendsID, friendName, gender, thirst, hunger, task, fun, dress, what = nydata
     sense = SenseHat()
     sense.show_message(friendName) 
 
