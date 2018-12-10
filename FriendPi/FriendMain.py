@@ -3,7 +3,7 @@ import time
 from sense_hat import SenseHat
 
 friendsID = ""
-friendName = ""
+friendName = "data"
 gender = ""
 thirst = ""
 hunger =" "
