@@ -9,19 +9,19 @@ def getDataBroadcast ():
     client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     client.bind(("", 4000))
     data  = client.recvfrom(1024) 
-      
+    
     _friendsID, _friendName, _gender, _thirst, _hunger, _task, _fun, _dress = str(data).split()
     newFriendID = _friendsID.replace("b'", "")
     newDress = _dress.replace("\'", "")
       
-    return newFriendID, _friendName, _gender, _thirst, _hunger, _task, _fun, newDress
+    return str(data)
 
 
 def mainmenu ():
     friendsID, friendName, gender, thirst, hunger, task, fun, dress = getDataBroadcast()
 
     sense = SenseHat()
-    sense.show_message(friendName) 
+    sense.show_message(getDataBroadcast()) 
 
     g = (0, 255, 0) #green
     s = (0, 0, 0)  #sort
