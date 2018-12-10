@@ -91,13 +91,13 @@ def mainmenu ():
     yellow = (255, 255, 0)
     green = (0, 255, 0)
     #mood
-    num4 = 5
-    if num4 > 40 and num4 > 70:
+    num4 = int(hunger) + int(thirst) + int(fun)
+    if num4 > 120 and num4 > 210:
         sense.set_pixel(3, 1, red)
         sense.set_pixel(4, 1, red)
         sense.set_pixel(3, 2, red)
         sense.set_pixel(4, 2, red)
-    elif num4 > 40:   
+    elif num4 > 120:   
         sense.set_pixel(3, 1, yellow)
         sense.set_pixel(4, 1, yellow)
         sense.set_pixel(3, 2, yellow)
@@ -108,7 +108,8 @@ def mainmenu ():
         sense.set_pixel(3, 2, green)
         sense.set_pixel(4, 2, green)
 
-mainmenu()
+while True: 
+    mainmenu()
 
 
 
