@@ -22,9 +22,10 @@ def getDataBroadcast ():
 
 def mainmenu ():
    
-    friendsID, friendName, gender, thirst, hunger, task, fun, dress, what, what2 = getDataBroadcast().split()
+    _friendsID, friendName, gender, thirst, hunger, task, fun, _dress, notused1, notused2 = getDataBroadcast().split()
+    friendsID = _friendsID.replace("b'", "")
+    dress = _dress.replace("\'", "")
     sense = SenseHat()
-    sense.show_message(dress) 
 
     g = (0, 255, 0) #green
     s = (0, 0, 0)  #sort
