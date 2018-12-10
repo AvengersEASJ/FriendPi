@@ -66,7 +66,7 @@ def mainmenu ():
     yellow = (255, 255, 0)
     green = (0, 255, 0)
     #thirst
-    num2 = thirst
+    num2 = int(thirst)
     if num2 > 40 and num2 > 70:
         sense.set_pixel(0, 0, red)
     elif num2 > 40:   
@@ -79,7 +79,7 @@ def mainmenu ():
     yellow = (255, 255, 0)
     green = (0, 255, 0)
     #hunger
-    num3 = hunger
+    num3 = int(hunger)
     if num3 > 40 and num3 > 70:
         sense.set_pixel(1, 0, red)
     elif num3 > 40:   
