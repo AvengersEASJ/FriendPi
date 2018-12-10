@@ -18,19 +18,8 @@ def getDataBroadcast ():
     while True:
         data  = client.recvfrom(1024) 
       
-        _friendsID, _friendName, _gender, _thirst, _hunger, _task, _fun, _dress = str(data).split()
-        newFriendID = _friendsID.replace("b'", "")
-        newDress = _dress.replace("\'", "")
-      
-    friendsID = newFriendID
-    friendName = _friendName
-    gender = _gender
-    thirst = _thirst
-    hunger = _hunger
-    task = _task
-    fun = _fun
-    dress = newDress
-    return friendName
+        
+    return str(data)
 
 def mainmenu ():
     sense = SenseHat()
