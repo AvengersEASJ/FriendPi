@@ -18,7 +18,8 @@ def getDataBroadcast ():
     while True:
         data  = client.recvfrom(1024) 
       
-        _friendsID, _friendName, _gender, _thirst, _hunger, _task, _fun, _dress = str(data).split()
+        _friendname = str(data)
+        #_friendsID, _friendName, _gender, _thirst, _hunger, _task, _fun, _dress = str(data).split()
 
         newFriendID = _friendsID.replace("b'", "")
         newDress = _dress.replace("\'", "")
