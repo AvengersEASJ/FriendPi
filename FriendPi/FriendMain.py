@@ -19,6 +19,7 @@ def getDataBroadcast ():
         data  = client.recvfrom(1024) 
       
         _friendsID, _friendName, _gender, _thirst, _hunger, _task, _fun, _dress = str(data).split()
+
         newFriendID = _friendsID.replace("b'", "")
         newDress = _dress.replace("\'", "")
       
@@ -30,14 +31,14 @@ def getDataBroadcast ():
     task = _task
     fun = _fun
     dress = newDress
-    return friendName
 
+    return friendName
 
 
 def mainmenu ():
     sense = SenseHat()
-    getDataBroadcast()
-    sense.show_message(friendName) 
+    #getDataBroadcast()
+    #sense.show_message(friendName) 
 
     g = (0, 255, 0) #green
     s = (0, 0, 0)  #sort
