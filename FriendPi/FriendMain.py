@@ -24,7 +24,7 @@ def sendDataBroadcast():
     server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     server.settimeout(0.2)
-    server.bind(("", 5000))
+    server.bind(("", 4999))
     message = friendsID, thirst, hunger, task, fun, dress
     while True:
         server.sendto(message, ('<broadcast>', 5000))
