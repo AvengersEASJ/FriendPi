@@ -20,6 +20,16 @@ def getDataBroadcast ():
       
     return str(data)
 
+def sendDataBroadcast():
+    server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    server.settimeout(0.2)
+    server.bind(("", 5000))
+    message = friendsID, thirst, hunger, task, fun, dress
+    while True:
+        server.sendto(message, ('<broadcast>', 5000))
+        time.sleep(1)
+
 def mainmenu ():
    
     _friendsID, friendName, gender, thirst, hunger, task, fun, _dress, notused1, notused2 = getDataBroadcast().split()
@@ -107,9 +117,11 @@ def mainmenu ():
         sense.set_pixel(4, 1, red)
         sense.set_pixel(3, 2, red)
         sense.set_pixel(4, 2, red)
+    sendDataBroadcast()
 
 while True: 
     mainmenu()
+    
 
 
 
