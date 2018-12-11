@@ -190,7 +190,7 @@ def mainmenu ():
     server.sendto(message.encode(), ('<broadcast>', 5000))
     
     apple()
-    hunger + 20
+    int(hunger) + 20
 
 
 
