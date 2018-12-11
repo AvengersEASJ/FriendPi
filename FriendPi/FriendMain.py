@@ -25,8 +25,10 @@ def sendDataBroadcast():
     server.settimeout(0.2)
     server.bind(("", 4999))
     message = friendsID + thirst + hunger + task + fun + dress
+    bmessage = str.encode(message)
+
     while True:
-        server.sendto(message, ('<broadcast>', 5000))
+        server.sendto(bmessage, ('<broadcast>', 5000))
         time.sleep(1)
 
 def mainmenu ():
