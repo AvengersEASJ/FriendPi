@@ -1,7 +1,6 @@
 import socket
 import time
 from sense_hat import SenseHat
-import re
 
 
 def getDataBroadcast ():
@@ -16,11 +15,11 @@ def getDataBroadcast ():
 
 def mainmenu ():
    
-    _friendsID, friendName, gender, thirst, hunger, task, fun, _dress, notused1, notused2 = getDataBroadcast().split()
+    _friendsID, friendName, gender, thirst, hunger, task, fun, degrees, _dress, notused1, notused2 = getDataBroadcast().split()
     friendsID = _friendsID.replace("b'", "")
     dress = _dress.replace("\'", "")
     sense = SenseHat()
-
+    sense.show_message(degrees)
     g = (0, 255, 0) #green
     s = (0, 0, 0)  #sort
     b = (0, 0, 255) #blue
