@@ -3,14 +3,6 @@ import time
 from sense_hat import SenseHat
 import re
 
-friendsID = ""
-friendName = ""
-gender = ""
-thirst = ""
-hunger =" "
-task = ""
-fun = ""
-dress = ""
 
 def getDataBroadcast ():
     client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -19,13 +11,7 @@ def getDataBroadcast ():
     data  = client.recvfrom(1024) 
     return str(data)
 
-def sendDataBroadcast():
-    server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-    server.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    server.settimeout(0.2)
-    server.bind(("", 5000))
-    message = friendsID + thirst + hunger + task + fun + dress
-    server.sendto(message.encode(), ('<broadcast>', 5000))
+
 
 
 def mainmenu ():
@@ -115,7 +101,15 @@ def mainmenu ():
         sense.set_pixel(4, 1, red)
         sense.set_pixel(3, 2, red)
         sense.set_pixel(4, 2, red)
-    sendDataBroadcast()
+        
+    server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+    server.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    server.settimeout(0.2)
+    server.bind(("", 5000))
+    message = friendsID + thirst + hunger + task + fun + dress
+    server.sendto(message.encode(), ('<broadcast>', 5000))
+
+
 
 while True: 
     mainmenu()
