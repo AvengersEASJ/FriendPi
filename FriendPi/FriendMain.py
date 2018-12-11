@@ -101,7 +101,7 @@ def mainmenu ():
         sense.set_pixel(3, 2, red)
         sense.set_pixel(4, 2, red)
 
-    if degrees > 20:
+    if  int(degrees) > 20:
         sense.set_pixel(1, 8, green)
         sense.set_pixel(2, 8, green)
         sense.set_pixel(3, 8, green)
@@ -110,7 +110,7 @@ def mainmenu ():
         sense.set_pixel(6, 8, green)
         sense.set_pixel(7, 8, green)
         sense.set_pixel(8, 8, green)
-    elif degrees > 10 and degrees < 20:   
+    elif int(degrees) > 10 and degrees < 20:   
         sense.set_pixel(1, 8, b)
         sense.set_pixel(2, 8, b)
         sense.set_pixel(3, 8, b)
