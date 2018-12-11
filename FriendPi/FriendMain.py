@@ -19,6 +19,7 @@ def mainmenu ():
     friendsID = _friendsID.replace("b'", "")
     dress = _dress.replace("\'", "")
     sense = SenseHat()
+    hunger = 50
 
     g = (0, 255, 0) #green
     s = (0, 0, 0)  #sort
