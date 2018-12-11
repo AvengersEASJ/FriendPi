@@ -35,7 +35,6 @@ def mainmenu ():
       b, b, b, s, s, b, b, b,
       b, b, b, s, s, b, b, b,
       b, b, s, s, s, s, b, b,
-      g, g, g, g, g, g, g, g
     ]
  
     f_tama = [
@@ -46,7 +45,6 @@ def mainmenu ():
         b, b, b, s, s, b, b, b,
         b, b, b, s, s, b, b, b,
         b, b, p, p, p, p, b, b,
-        g, g, g, g, g, g, g, g
     ]
 
     num = gender
