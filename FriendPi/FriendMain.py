@@ -17,7 +17,6 @@ def getDataBroadcast ():
     client.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     client.bind(("", 4000))
     data  = client.recvfrom(1024) 
-      
     return str(data)
 
 def sendDataBroadcast():
@@ -25,7 +24,7 @@ def sendDataBroadcast():
     server.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     server.settimeout(0.2)
     server.bind(("", 4999))
-    message = friendsID, thirst, hunger, task, fun, dress
+    message = friendsID + thirst + hunger + task + fun + dress
     while True:
         server.sendto(message, ('<broadcast>', 5000))
         time.sleep(1)
