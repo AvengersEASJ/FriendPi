@@ -1,5 +1,6 @@
 import socket
 import time
+from time import sleep
 from sense_hat import SenseHat
 
 
@@ -12,6 +13,58 @@ def getDataBroadcast ():
 
 
 
+def apple():
+
+    apple = SenseHat()
+  
+    r = (255, 0, 0)
+    g = (0, 255, 0)
+
+    apple.clear
+    apple1 = [
+        g, g, g, g, g, g, g, g,
+        g, g, g, g, g, g, g, g,
+        g, g, r, r, r, r, g, g,
+        g, g, r, r, r, r, g, g,
+        g, g, r, r, r, r, g, g,
+        g, g, r, r, r, r, g, g,
+        g, g, g, g, g, g, g, g,
+        g, g, g, g, g, g, g, g
+    ]
+    apple.set_pixels(apple1)
+    while True:
+        for event in apple.stick.get_events():
+            if event.action == "pressed":
+      
+                if event.direction == "up":
+                    apple.set_pixel(4, 3, g)
+                    apple.set_pixel(4, 2, g)
+                    apple.set_pixel(5, 3, g)
+                    apple.set_pixel(5, 2, g)
+        
+                    sleep(0.8)
+        
+                if event.direction == "up":
+                    apple.set_pixel(3, 3, g)
+                    apple.set_pixel(3, 2, g)
+                    apple.set_pixel(2, 3, g)
+                    apple.set_pixel(2, 2, g)
+          
+                    sleep(0.8)
+          
+                if event.direction == "up":
+                    apple.set_pixel(2, 4, g)
+                    apple.set_pixel(2, 5, g)
+                    apple.set_pixel(3, 4, g)
+                    apple.set_pixel(3, 5, g)
+            
+                    sleep(0.8)
+          
+                if event.direction == "up":
+                    apple.set_pixel(4, 4, g)
+                    apple.set_pixel(4, 5, g)
+                    apple.set_pixel(5, 4, g)
+                    apple.set_pixel(5, 5, g)
 
 def mainmenu ():
    
@@ -141,6 +194,7 @@ def mainmenu ():
 
 while True: 
     mainmenu()
+    apple()
     
 
 
