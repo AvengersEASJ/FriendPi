@@ -23,10 +23,9 @@ def sendDataBroadcast():
     server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     server.settimeout(0.2)
-    server.bind(("", 4999))
+    server.bind(("", 5000))
     message = friendsID + thirst + hunger + task + fun + dress
-    bmessage = str.encode(message)
-    server.sendto(bmessage, ('<broadcast>', 5000))
+    server.sendto(message.encode(), ('<broadcast>', 5000))
 
 
 def mainmenu ():
