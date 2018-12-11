@@ -34,6 +34,7 @@ def mainmenu ():
     _friendsID, friendName, gender, thirst, hunger, task, fun, _dress, notused1, notused2 = getDataBroadcast().split()
     friendsID = _friendsID.replace("b'", "")
     dress = _dress.replace("\'", "")
+    
     sense = SenseHat()
 
     g = (0, 255, 0) #green
@@ -116,7 +117,6 @@ def mainmenu ():
         sense.set_pixel(4, 1, red)
         sense.set_pixel(3, 2, red)
         sense.set_pixel(4, 2, red)
-    sendDataBroadcast()
 
 while True: 
     mainmenu()
