@@ -31,40 +31,39 @@ def apple():
         g, g, g, g, g, g, g, g,
         g, g, g, g, g, g, g, g
     ]
-    apple.set_pixels(apple1)
-    while True:
-        for event in apple.stick.get_events():
-            if event.action == "pressed":
-      
-                if event.direction == "up":
-                    apple.set_pixel(4, 3, g)
-                    apple.set_pixel(4, 2, g)
-                    apple.set_pixel(5, 3, g)
-                    apple.set_pixel(5, 2, g)
+    
+    for event in apple.stick.get_events():
+        if event.action == "pressed":
+            apple.set_pixels(apple1)
+            if event.direction == "up":
+                apple.set_pixel(4, 3, g)
+                apple.set_pixel(4, 2, g)
+                apple.set_pixel(5, 3, g)
+                apple.set_pixel(5, 2, g)
         
-                    sleep(0.8)
+                sleep(0.8)
         
-                if event.direction == "up":
-                    apple.set_pixel(3, 3, g)
-                    apple.set_pixel(3, 2, g)
-                    apple.set_pixel(2, 3, g)
-                    apple.set_pixel(2, 2, g)
+            if event.direction == "up":
+                apple.set_pixel(3, 3, g)
+                apple.set_pixel(3, 2, g)
+                apple.set_pixel(2, 3, g)
+                apple.set_pixel(2, 2, g)
           
-                    sleep(0.8)
+                sleep(0.8)
           
-                if event.direction == "up":
-                    apple.set_pixel(2, 4, g)
-                    apple.set_pixel(2, 5, g)
-                    apple.set_pixel(3, 4, g)
-                    apple.set_pixel(3, 5, g)
+            if event.direction == "up":
+                apple.set_pixel(2, 4, g)
+                apple.set_pixel(2, 5, g)
+                apple.set_pixel(3, 4, g)
+                apple.set_pixel(3, 5, g)
             
-                    sleep(0.8)
+                sleep(0.8)
           
-                if event.direction == "up":
-                    apple.set_pixel(4, 4, g)
-                    apple.set_pixel(4, 5, g)
-                    apple.set_pixel(5, 4, g)
-                    apple.set_pixel(5, 5, g)
+            if event.direction == "up":
+                apple.set_pixel(4, 4, g)
+                apple.set_pixel(4, 5, g)
+                apple.set_pixel(5, 4, g)
+                apple.set_pixel(5, 5, g)
 
 def mainmenu ():
    
@@ -189,12 +188,15 @@ def mainmenu ():
     server.bind(("", 5000))
     message = friendsID + " " + thirst + " " + hunger + " " + task + " " + fun + " " + dress
     server.sendto(message.encode(), ('<broadcast>', 5000))
+    
+    apple()
+    hunger + 20
 
 
 
 while True: 
     mainmenu()
-    apple()
+    
     
 
 
